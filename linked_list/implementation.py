@@ -1,5 +1,5 @@
 from .interface import AbstractLinkedList
-from node import Node
+from .node import Node
 
 class LinkedList(AbstractLinkedList):
     """
