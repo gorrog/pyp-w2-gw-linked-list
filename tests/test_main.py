@@ -183,3 +183,43 @@ class LinkedListTestCase(unittest.TestCase):
         my_list += LinkedList()
         self.assertEqual(my_list.count(), 0)
         self.assertEqual(my_list, LinkedList())
+
+    def test_not_equals(self):
+        self.assertNotEqual(
+            LinkedList([1, 2, 3]),
+            LinkedList([5, 2, 1]))
+
+        self.assertNotEqual(
+            LinkedList([]),
+            LinkedList([3]))
+
+        self.assertNotEqual(
+            LinkedList([1,5]),
+            LinkedList([4]))
+
+        self.assertEqual(
+            LinkedList([1, 2]),
+            LinkedList([1, 2]))
+
+        self.assertEqual(
+            LinkedList([1]),
+            LinkedList([1])) 
+  
+    def test_node_str(self):
+        my_node = Node(4)
+        self.assertEqual(str(my_node), "4")
+        
+    def test_get_item(self):
+        my_list = LinkedList([1,2,3,4])
+        self.assertEqual(my_list[2], 3)
+        self.assertEqual(my_list[0], 1)
+        self.assertEqual(my_list[3], 4)
+        
+        my_list2 = LinkedList([1])
+        self.assertEqual(my_list[0], 1)
+        with self.assertRaises(TypeError):
+            my_list2["hello"]
+        with self.assertRaises(KeyError):
+            my_list2[9]
+        with self.assertRaises(KeyError):
+            my_list2[-1]

@@ -8,7 +8,7 @@ class Node(object):
         self.next = next
 
     def __str__(self):
-        return self.elem
+        return str(self.elem)
 
     def __eq__(self, other):
         return self.elem == other
